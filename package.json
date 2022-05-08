@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/AustinKong/Anime-list/issues"
   },
-  "homepage": "https://github.com/AustinKong/Anime-list#readme"
+  "homepage": "https://github.com/AustinKong/Anime-list#readme",
+  "dependencies": {
+    "bootstrap": "^3.4.1"
+  }
 }
