@@ -8,10 +8,10 @@
 
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self';">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
+    <script defer src="render.js"></script>
     <title>Hello World!</title>
 </head>
 
@@ -24,7 +24,7 @@
             A
         </li>
     </ul>
-    <div class="mainGallery">
+    <div id="mainGallery">
         <h1>
             Your Gallery
         </h1>
@@ -60,6 +60,7 @@
             <img src="Images/c.jpg">
         </div>
     </div>
+    <button id="videoSelectBtn">poggers button</button>
 
 </body>
 
