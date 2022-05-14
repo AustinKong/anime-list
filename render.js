@@ -12,6 +12,9 @@ Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (
     english
     native
     }
+    coverImage{
+    medium
+    }
 }
 }
 `;
@@ -46,11 +49,15 @@ function handleResponse(response) {
     });
 }
 
-function handleData(data) {
-    console.log(data);
+function handleData(output) {
+    console.log(output.data);
+    const imgTarget = document.getElementById('target');
+    imgTarget.src = output.data.Media.coverImage.medium;
+    //console.log(output.data.Media.coverImage.);
 }
 
 function handleError(error) {
-    alert('Error, check console');
+    //alert('Error, check console');
     console.error(error);
 }
+
