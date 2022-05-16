@@ -1,3 +1,4 @@
+
 const videoSelectBtn = document.getElementById('videoSelectBtn');
 videoSelectBtn.onclick = handleData;
 
@@ -60,4 +61,3 @@ function handleError(error) {
     //alert('Error, check console');
     console.error(error);
 }
-
