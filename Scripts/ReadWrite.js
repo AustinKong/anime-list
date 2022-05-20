@@ -19,3 +19,18 @@ function CreateList(){
     })
 }
 */
+
+function SaveToStorage(animeData){
+    localStorage.setItem(animeData.data.Media.id, JSON.stringify(animeData.data));
+    //console.log(localStorage.getItem(animeData.data.Media.id));
+}
+
+function ReadAllFromStorage(){
+    const dataProcessed = [];
+
+    for(var data in localStorage){
+        dataProcessed.push(JSON.parse(localStorage.getItem(data)).Media);
+    }
+    return dataProcessed;
+    
+}
