@@ -11,12 +11,12 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <script defer src="Scripts/GlobalVariables.js"></script>
     <script defer src="Scripts/WebServices.js"></script>
     <script defer src="Scripts/ReadWrite.js"></script>
-    <script defer src="Scripts/render.js"></script>
-    
     <script defer src="Scripts/Search.js"></script>
-    <title>I wish to kill myself</title>
+
+    <title>maybe life is bearable afterall</title>
 </head>
 
 <body>
@@ -28,28 +28,23 @@
             A
         </li>
     </ul>
+    <h1>
+        Your Gallery
+    </h1>
     <div id="mainGallery">
-        <h1>
-            Your Gallery
-        </h1>
         <div class="tile">
-            <img src="Images/a.jpg" id="target">
-        </div>
-        <div class="tile">
-            <img src="Images/b.jpg">
-        </div>
-        <div class="tile">
-            <img src="Images/c.jpg">
-        </div>
-        <div class="tile">
-            <img src="Images/b.jpg">
-        </div>
-        <div class="tile">
-            <img src="Images/c.jpg">
+            <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx21-tXMN3Y20PIL9.jpg">
+            <h2>kaguya sama love is war renai kokuheea</h2>
         </div>
     </div>
-    <button id="videoSelectBtn" onclick="APIGet(11741)">poggers button</button>
 
+
+
+    <button onclick="APIGet(125367)">poggers button</button>
+    <button onclick="CreateEmptyList('default')">ALL CLEAR</button>
+    <button onclick="test()">Read</button>
+
+    <script defer src="Scripts/Main_Renderer.js"></script>
 </body>
 
 </html>

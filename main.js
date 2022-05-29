@@ -5,13 +5,14 @@ const createWindow = () => {
       height: 820,
       webPreferences: {
         nodeIntegration: true,
+        contextIsolation: false,
       }
     })
   
     win.loadFile('index.html')
 }
 app.whenReady().then(() => {
-    createWindow()
+  createWindow();
 })
 
 app.on('window-all-closed', () => {

@@ -10,7 +10,7 @@ Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (
     native
     }
     coverImage{
-    medium
+    large
     }
 }
 }
@@ -25,8 +25,7 @@ function handleResponse(response) {
 function handleData(output) {
     //console.log(output.data);
     //console.log(output.data.Media.coverImage.);
-    SaveToStorage(output);
-    console.log(ReadAllFromStorage());
+    AddAnimeToList('default', output.data.Media);
 }
 
 function handleError(error) {

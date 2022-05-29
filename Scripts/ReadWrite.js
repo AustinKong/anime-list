@@ -1,8 +1,10 @@
-/*
-var fs = require('fs');
+var fs = require("fs");
+
+var lists = [];
+
 
 var anime = {
-    id:"",
+    id:000000,
 
     title :{
     english:"",
@@ -12,25 +14,61 @@ var anime = {
     coverImage:""
 }
 
-function CreateList(){
 
-    fs.writeFile("Test.txt", anime, function(err){
+function CreateEmptyList(listName){
+    fs.writeFile(("./LocalData/" + listName + ".json"), JSON.stringify({}), function(err){
         if(err) console.log(err);
-    })
-}
-*/
-
-function SaveToStorage(animeData){
-    localStorage.setItem(animeData.data.Media.id, JSON.stringify(animeData.data));
-    //console.log(localStorage.getItem(animeData.data.Media.id));
+    });
 }
 
-function ReadAllFromStorage(){
-    const dataProcessed = [];
+function AddAnimeToList(listName, anime){
+    var targetList = ReadList(listName);
+    console.log(anime.id);
+    targetList[(anime.id).toString()] = anime;
+    WriteList(listName, targetList);
 
-    for(var data in localStorage){
-        dataProcessed.push(JSON.parse(localStorage.getItem(data)).Media);
+    /*
+    //KEEPING THIS LOGIC HERE INCASE REQUIRE TO BE USED AGAIN
+
+    var repeated = false;
+
+    Object.keys(targetList).forEach(key => {
+        if(targetList[key].id == anime.id) repeated = true;
+    });
+
+    if(!repeated) {
+        
     }
-    return dataProcessed;
-    
+    else console.log("Repeated Anime!");
+    */
+}
+
+function WriteList(listName, listData){
+    fs.writeFile(("./LocalData/" + listName + ".json"), JSON.stringify(listData), function(err){
+        if(err) console.log(err);
+    });
+}
+
+function ReadList(listName){
+    return JSON.parse(fs.readFileSync(("./LocalData/" + listName + ".json"), 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        return data;
+    }));
+}
+
+function ReadLists(){
+    fs.readFileSync('./LocalData/Lists.txt', 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        lists = data.split(",");
+    });
+}
+
+function test(){
+    console.log(ReadList('default'));
 }
