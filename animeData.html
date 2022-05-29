@@ -16,35 +16,24 @@
     <script defer src="Scripts/ReadWrite.js"></script>
     <script defer src="Scripts/Search.js"></script>
 
-    <title>maybe life is bearable afterall</title>
+    <title></title>
 </head>
 
 <body>
-    <ul class="navbar">
-        <li>
-            A
-        </li>
-        <li>
-            A
-        </li>
-    </ul>
-    <h1>
-        Your Gallery
-    </h1>
-    <div id="mainGallery">
-        <div class="tile">
-            <img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx21-tXMN3Y20PIL9.jpg">
-            <h2>kaguya sama love is war renai kokuheea</h2>
+    <img id="banner">
+    <div class="dataContainer">
+        <div id="leftColumn">
+            <img id="coverImage">
+
+        </div>
+        <div id="rightColumn">
+            <h1 id="title"></h1>
+            <h1>POGPO</h1>
         </div>
     </div>
+    <button onclick="test()">poggers button</button>
 
-
-
-    <button onclick="//AddAnimeToList('default',APIGet(125367))">poggers button</button>
-    <button onclick="CreateEmptyList('default')">ALL CLEAR</button>
-    <button onclick="var a = await APIGet(125367); console.log(a);">Read</button>
-    <button onclick="OpenAnimeDataPage()">Read</button>
-    <script defer src="Scripts/MainRender.js"></script>
+    <script defer src="Scripts/AnimeDataRender.js"></script>
 </body>
 
 </html>

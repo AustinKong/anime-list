@@ -23,6 +23,7 @@ function CreateEmptyList(listName){
 
 function AddAnimeToList(listName, anime){
     var targetList = ReadList(listName);
+    console.log(anime);
     console.log(anime.id);
     targetList[(anime.id).toString()] = anime;
     WriteList(listName, targetList);
