@@ -61,13 +61,15 @@ function ReadList(listName){
 }
 
 function ReadLists(){
-    fs.readFileSync('./LocalData/Lists.txt', 'utf8', (err, data) => {
+    var lists;
+    lists = fs.readFileSync('./LocalData/Lists.txt', 'utf8', (err, data) => {
         if (err) {
             console.error(err);
             return;
         }
-        lists = data.split(",");
+        return data;
     });
+    return lists.split(',');
 }
 
 function test(){

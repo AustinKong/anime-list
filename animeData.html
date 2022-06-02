@@ -11,6 +11,7 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="Scripts/GlobalVariables.js"></script>
     <script defer src="Scripts/WebServices.js"></script>
     <script defer src="Scripts/ReadWrite.js"></script>
@@ -20,15 +21,35 @@
 </head>
 
 <body>
+    <div id="loading">
+        <p>LOADING</p>
+    </div>
+
     <img id="banner">
     <div class="dataContainer">
         <div id="leftColumn">
             <img id="coverImage">
-
+            <div style="display: flex; justify-content: space-between; width: 80%; flex-wrap:wrap">
+                <button class="addToListBtn" onclick="ToggleAddToListDropdown()">
+                    Add to list &ensp;
+                    <i class="material-icons">expand_more</i>
+                </button>
+                <div id="addToListContent">
+                    <a>PENIS</a>
+                </div>
+                <button class="like">
+                    <i class="material-icons">favorite</i>
+                </button>    
+            </div>
+           
+            <div id="genres">
+                <h1>Genres:</h1>
+            </div>
         </div>
         <div id="rightColumn">
-            <h1 id="title"></h1>
-            <h1>POGPO</h1>
+            <h1 id="title"></h1>   
+            <p id="description">
+            </p>
         </div>
     </div>
     <button onclick="test()">poggers button</button>

@@ -38,6 +38,36 @@ function SetupPage(){
     document.getElementById("banner").src = animeDataFull.bannerImage;
     document.getElementById("coverImage").src = animeDataFull.coverImage.large;
     document.getElementById("title").textContent = animeDataFull.title.english;
+    document.getElementById("description").innerHTML = animeDataFull.description;
+    
+    for(var i = 0; i < animeDataFull.genres.length;i++){
+        const label = document.createElement('p');
+        label.classList.add("genresLabel");
+        label.textContent = animeDataFull.genres[i];
+        document.getElementById("genres").appendChild(label);
+    }
+    
+    var lists = ReadLists();
+
+    for(var i=0;i<lists.length;i++){
+        const item = document.createElement('a');
+        item.textContent = lists[i];
+        document.getElementById("addToListContent").appendChild(item);
+    }
+    
+    document.getElementById("loading").remove();
+}
+
+var toggled = false;
+function ToggleAddToListDropdown(){
+    if(!toggled){
+        document.getElementById('addToListContent').style.display = "block";
+        toggled = true;
+    }
+    else{
+        document.getElementById('addToListContent').style.display = "none";
+        toggled = false;
+    }
 }
 
 function test(){
