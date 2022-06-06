@@ -2,35 +2,30 @@
 <html>
 
 <head>
-    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="styles.css">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="indexStyles.css">
 
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <script defer src="Scripts/GlobalVariables.js"></script>
-    <script defer src="Scripts/WebServices.js"></script>
-    <script defer src="Scripts/ReadWrite.js"></script>
-    <script defer src="Scripts/Search.js"></script>
+    <script defer src="../Scripts/WebServices.js"></script>
+    <script defer src="../Scripts/ReadWrite.js"></script>
 
     <title>My list</title>
 </head>
 
 <body>
-    <ul class="navbar">
+    <ul id="navbar">
         <li>
-            A
+            <a>Anilist</a>
         </li>
         <li>
-            A
+            <a onclick="SearchOnClick()">Search</a>
         </li>
     </ul>
-    <h1>
-        Your Gallery
-    </h1>
     <div id="mainGallery">
 
     </div>
@@ -39,7 +34,7 @@
     <button onclick="CreateEmptyList('default')">ALL CLEAR</button>
     <button onclick="var a = await APIGet(125367); console.log(a);">Read</button>
     <button onclick="OpenAnimeDataPage()">Read</button>
-    <script defer src="Scripts/MainRender.js"></script>
+    <script defer src="../Scripts/MainRender.js"></script>
 </body>
 
 </html>

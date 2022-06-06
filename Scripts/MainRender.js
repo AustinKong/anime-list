@@ -1,13 +1,31 @@
-const{ipcRenderer} = require("electron");
+const {
+    ipcRenderer
+} = require("electron");
 
 const mainGallery = document.getElementById('mainGallery');
-var list = ReadList('default');
+var lists = ReadLists();
 
-Object.keys(list).forEach(key => {
-    CreatePanel(list[key]);
-});
+for (i = 0; i < lists.length; i++) {
+    var list = ReadList(lists[i]);
 
-function CreatePanel(animeData){
+    const listElement = document.createElement("div");
+    const listTitle = document.createElement("h1");
+
+    listElement.classList.add("listContainer");
+    listTitle.textContent = lists[i];
+    listElement.appendChild(listTitle);
+    listElement.dataset.listIndex = i;
+
+    Object.keys(list).forEach(key => {
+        CreatePanel(list[key], listElement);
+    });
+
+    mainGallery.appendChild(listElement);
+}
+
+
+
+function CreatePanel(animeData, listElement) {
     const tile = document.createElement("div");
     tile.classList.add("tile");
     tile.dataset.id = animeData.id;
@@ -16,7 +34,7 @@ function CreatePanel(animeData){
     cover.src = animeData.coverImage.large;
 
     const onClick = (event) => {
-        PanelOnClick(list[event.target.parentElement.dataset.id]);
+        PanelOnClick(ReadList(lists[event.target.parentElement.parentElement.dataset.listIndex])[event.target.parentElement.dataset.id]);
     }
     cover.addEventListener('click', onClick);
 
@@ -25,9 +43,14 @@ function CreatePanel(animeData){
 
     tile.appendChild(cover);
     tile.appendChild(title);
-    mainGallery.appendChild(tile);
+    listElement.appendChild(tile);
 }
 
-function PanelOnClick(animeData){
+function PanelOnClick(animeData) {
+    console.log(animeData);
     ipcRenderer.send("createAnimeDataPage1", animeData);
+}
+
+function SearchOnClick(){
+    ipcRenderer.send("createSearchPage");
 }

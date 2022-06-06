@@ -4,27 +4,26 @@ var lists = [];
 
 
 var anime = {
-    id:000000,
+    id: 000000,
 
-    title :{
-    english:"",
-    native:""
+    title: {
+        english: "",
+        native: ""
     },
 
-    coverImage:""
+    coverImage: ""
 }
 
 
-function CreateEmptyList(listName){
-    fs.writeFile(("./LocalData/" + listName + ".json"), JSON.stringify({}), function(err){
-        if(err) console.log(err);
+function CreateEmptyList(listName) {
+    fs.writeFile(("./LocalData/" + listName + ".json"), JSON.stringify({}), function (err) {
+        if (err) console.log(err);
     });
 }
 
-function AddAnimeToList(listName, anime){
+function AddAnimeToList(listName, anime) {
     var targetList = ReadList(listName);
-    console.log(anime);
-    console.log(anime.id);
+    console.log("Saved",anime.id,"into",listName);
     targetList[(anime.id).toString()] = anime;
     WriteList(listName, targetList);
 
@@ -44,13 +43,13 @@ function AddAnimeToList(listName, anime){
     */
 }
 
-function WriteList(listName, listData){
-    fs.writeFile(("./LocalData/" + listName + ".json"), JSON.stringify(listData), function(err){
-        if(err) console.log(err);
+function WriteList(listName, listData) {
+    fs.writeFile(("./LocalData/" + listName + ".json"), JSON.stringify(listData), function (err) {
+        if (err) console.log(err);
     });
 }
 
-function ReadList(listName){
+function ReadList(listName) {
     return JSON.parse(fs.readFileSync(("./LocalData/" + listName + ".json"), 'utf8', (err, data) => {
         if (err) {
             console.error(err);
@@ -60,7 +59,7 @@ function ReadList(listName){
     }));
 }
 
-function ReadLists(){
+function ReadLists() {
     var lists;
     lists = fs.readFileSync('./LocalData/Lists.txt', 'utf8', (err, data) => {
         if (err) {
@@ -70,8 +69,4 @@ function ReadLists(){
         return data;
     });
     return lists.split(',');
-}
-
-function test(){
-    console.log(ReadList('default'));
 }

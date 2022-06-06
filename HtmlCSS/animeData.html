@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="styles.css">
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="animeDataStyles.css">
 
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
@@ -12,10 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script defer src="Scripts/GlobalVariables.js"></script>
-    <script defer src="Scripts/WebServices.js"></script>
-    <script defer src="Scripts/ReadWrite.js"></script>
-    <script defer src="Scripts/Search.js"></script>
+    <script defer src="../Scripts/WebServices.js"></script>
+    <script defer src="../Scripts/ReadWrite.js"></script>
 
     <title></title>
 </head>
@@ -30,18 +28,21 @@
         <div id="leftColumn">
             <img id="coverImage">
             <div style="display: flex; justify-content: space-between; width: 80%; flex-wrap:wrap">
-                <button class="addToListBtn" onclick="ToggleAddToListDropdown()">
-                    Add to list &ensp;
-                    <i class="material-icons">expand_more</i>
-                </button>
-                <div id="addToListContent">
-                    <a>PENIS</a>
+                <div class="dropdown">
+                    <button onclick="ToggleAddToListDropdown()" class="dropbtn">
+                        Add to list &ensp;
+                        <!--
+                            <i class="material-icons">expand_more</i>
+                        -->        
+                    </button>
+                    
+                    <div id="addToListDropdown" class="dropdown-content">
+                    </div>
                 </div>
                 <button class="like">
                     <i class="material-icons">favorite</i>
                 </button>    
             </div>
-           
             <div id="genres">
                 <h1>Genres:</h1>
             </div>
@@ -54,7 +55,7 @@
     </div>
     <button onclick="test()">poggers button</button>
 
-    <script defer src="Scripts/AnimeDataRender.js"></script>
+    <script defer src="../Scripts/AnimeDataRender.js"></script>
 </body>
 
 </html>

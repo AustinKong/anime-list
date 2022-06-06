@@ -1,8 +1,8 @@
 // Here we define our query as a multi-line string
 // Storing it in a separate .graphql/.gql file is also possible
 var queryShort = `
-query ($id: Int) { # Define which variables will be used in the query (id)
-Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+query ($id: Int) {
+Media (id: $id, type: ANIME) {
     id
     title {
     romaji
@@ -40,6 +40,30 @@ Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (
 }
 `
 
+var querySearch = `
+query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+    Page (page: $page, perPage: $perPage) {
+      pageInfo {
+        total
+        currentPage
+        lastPage
+        hasNextPage
+        perPage
+      }
+      media (id: $id, search: $search) {
+        id
+        title {
+        romaji
+        english
+        native
+        }
+        coverImage{
+        large
+        }
+      }
+    }
+}
+`
 
 function handleResponse(response) {
     return response.json().then(function (json) {

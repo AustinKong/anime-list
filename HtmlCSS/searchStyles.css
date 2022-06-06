@@ -1,0 +1,62 @@
+body {
+    background-color: #181717;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#searchInput {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    color: black;
+}
+
+#searchButton {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+#searchResults {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+.tile {
+    display: inline-block;
+    vertical-align: top;
+    padding: 2%;
+    width: 20%;
+    position: relative;
+}
+
+.tile img {
+    width: 100%;
+    border-radius: 10px;
+    aspect-ratio: 230/325;
+}
+
+.tile h2 {
+    margin-top: 5%;
+    font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    /* Don't forget this one */
+    text-overflow: ellipsis;
+}
+
+.tile img:hover {
+    filter: brightness(0.7);
+}
