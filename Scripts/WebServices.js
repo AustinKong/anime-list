@@ -2,7 +2,7 @@
 // Storing it in a separate .graphql/.gql file is also possible
 var queryShort = `
 query ($id: Int) {
-Media (id: $id, type: ANIME) {
+Media (id: $id) {
     id
     title {
     romaji
@@ -18,7 +18,7 @@ Media (id: $id, type: ANIME) {
 
 var queryLong = `
 query ($id: Int) { # Define which variables will be used in the query (id)
-Media (id: $id, type: ANIME) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+Media (id: $id) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
     id
     title {
     romaji
