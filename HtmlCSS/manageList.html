@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="manageListStyles.css">
+
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="../Scripts/WebServices.js"></script>
+    <script defer src="../Scripts/ReadWrite.js"></script>
+
+    <title>Manage Lists</title>
+</head>
+
+<body onload="SetupPage()">
+    <template id="listItem">
+        <div class="listItem">
+            <h2 class="title">List name (entries)</h2>
+            <a><i class="fa fa-trash-o"></i> Delete</a>
+            <a><i class="fa fa-clone"></i> Rename</a>
+        </div>
+    </template>
+    <ul id="navbar">
+        <li style="float: left">
+            <h1>My lists</h1>
+        </li>
+        <li id="createList">
+            <a onclick="CreateListClick()" style="text-decoration: none; color: white; user-select:none;">
+                <h2>
+                    + New List
+                </h2>
+            </a>
+        </li>
+    </ul>
+    
+    <div id="lists">
+        
+    </div>
+    <div id="renamePopup">
+        <h1>Rename list:</h1>
+        <div id="closeButton" onclick="CloseInput()"><i class="fa fa-window-minimize" aria-hidden="true"></i></div>
+        <input type="text" id="listNameField" placeholder="Rename list">
+        <button type="submit" id="searchButton" onclick="GetInputFromField()"><i class="fa fa-clone"></i></button>
+    </div>
+    <script defer src="../Scripts/ManageListRender.js"></script>
+</body>
+
+</html>

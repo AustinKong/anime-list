@@ -10,7 +10,7 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script defer src="../Scripts/WebServices.js"></script>
     <script defer src="../Scripts/ReadWrite.js"></script>
@@ -28,33 +28,53 @@
         <div id="leftColumn">
             <img id="coverImage">
             <div style="display: flex; justify-content: space-between; width: 80%; flex-wrap:wrap">
-                <div class="dropdown">
+                <div class="dropdown" style="margin-top: 10%; width: 100%;">
                     <button onclick="ToggleAddToListDropdown()" class="dropbtn">
-                        Add to list &ensp;
-                        <!--
-                            <i class="material-icons">expand_more</i>
-                        -->        
+                        Edit Lists
                     </button>
-                    
+
                     <div id="addToListDropdown" class="dropdown-content">
                     </div>
                 </div>
-                <button class="like">
-                    <i class="material-icons">favorite</i>
-                </button>    
             </div>
             <div id="genres">
                 <h1>Genres:</h1>
             </div>
         </div>
         <div id="rightColumn">
-            <h1 id="title"></h1>   
-            <p id="description">
-            </p>
+            <div>
+                <h1 id="title"></h1>
+                <p id="description">
+                </p>
+            </div>
+            <div style="display: flex; width: 100%; padding: 0; margin: 0;">
+                <div style="width: 60%; margin-right: 40px;">
+                    <h1 style="font-size: 20px">Watch/Read status</h1>
+                    <div class="dropdown" style="width:100%;">
+                        <button onclick="ToggleWatchStatusDropdown()" class="dropbtn" id="watchStatus"></button>
+                        <div id="watchStatusDropdown" class="dropdown-content">
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 40%;">
+                    <h1 style="font-size: 20px">Your rating</h1>
+                    <div class="rate" id="rating">
+                        <input type="radio" id="star5" name="rate" value="5" onclick="UpdateRatingClick(5);" />
+                        <label for="star5" title="text">5 stars</label>
+                        <input type="radio" id="star4" name="rate" value="4" onclick="UpdateRatingClick(4);" />
+                        <label for="star4" title="text">4 stars</label>
+                        <input type="radio" id="star3" name="rate" value="3" onclick="UpdateRatingClick(3);" />
+                        <label for="star3" title="text">3 stars</label>
+                        <input type="radio" id="star2" name="rate" value="2" onclick="UpdateRatingClick(2);" />
+                        <label for="star2" title="text">2 stars</label>
+                        <input type="radio" id="star1" name="rate" value="1" onclick="UpdateRatingClick(1);" />
+                        <label for="star1" title="text">1 star</label>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <button onclick="test()">poggers button</button>
-
     <script defer src="../Scripts/AnimeDataRender.js"></script>
 </body>
 

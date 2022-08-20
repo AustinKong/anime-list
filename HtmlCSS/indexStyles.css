@@ -1,5 +1,5 @@
 body {
-    background-color: #181717;
+    background-color: #171717;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -8,26 +8,78 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.logo {
+    font-size: 29px;
+    margin-left: 2%;
+}
+
+#logoText {
+    text-decoration: none;
+    font-family: Raleway, sans-serif;
+    letter-spacing: 4px;
+    font-weight: 600;
+    color: white;
+    user-select: none;
+}
+
+#logoText:hover {
+    color: #d6d6d6;
+}
+
 #navbar {
     list-style-type: none;
-    background-color: #F47832;
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 30px 20px;
     border-radius: 0;
     overflow: hidden;
+    background-color: #171717;
 }
 
 #navbar li {
     float: left;
 }
 
-#navbar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+#manageList {
+    float: right !important;
+    padding: 0 6px 0 6px;
+    margin-right: 1.5%;
+}
+
+#manageList a {
     text-decoration: none;
+    font-size: 29px;
+}
+
+#manageList:hover {
+    background-color: #525252;
+}
+
+.searchBar {
+    margin-top: 5px;
+    margin-left: 7%;
+}
+
+#searchInput {
+    padding: 6px 6px 6px 14px;
+    font-size: 17px;
+    border: none;
+    color: black;
+    border-radius: 20px 0 0 20px;
+    background-color: #fffcf1;
+    width: 20vw;
+}
+
+#searchButton {
+    float: right;
+    padding: 6px 15px 6px 10px;
+    margin-right: 16px;
+    background: rgb(212, 216, 226);
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 20px 20px 0;
+    color: #525252;
 }
 
 #mainGallery {
@@ -35,6 +87,7 @@ body::-webkit-scrollbar {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
+    margin-top: 1%;
 }
 
 .listContainer {
@@ -43,6 +96,7 @@ body::-webkit-scrollbar {
 
 .listContainer h1 {
     text-transform: capitalize;
+    margin-left: 1.5%;
 }
 
 .tile {

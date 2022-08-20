@@ -1,5 +1,3 @@
-// Here we define our query as a multi-line string
-// Storing it in a separate .graphql/.gql file is also possible
 var queryShort = `
 query ($id: Int) {
 Media (id: $id) {
@@ -17,8 +15,8 @@ Media (id: $id) {
 `
 
 var queryLong = `
-query ($id: Int) { # Define which variables will be used in the query (id)
-Media (id: $id) { # Insert our variables into the query arguments (id) (type: ANIME is hard-coded in the query)
+query ($id: Int) {
+Media (id: $id) { 
     id
     title {
     romaji
@@ -36,12 +34,15 @@ Media (id: $id) { # Insert our variables into the query arguments (id) (type: AN
     tags{
     category
     }
+    episodes
+    chapters
+    volumes
 }
 }
 `
 
 var querySearch = `
-query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+query ($id: Int, $page: Int, $perPage: Int, $search: String, $isAdult: Boolean) {
     Page (page: $page, perPage: $perPage) {
       pageInfo {
         total
@@ -50,7 +51,57 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String) {
         hasNextPage
         perPage
       }
-      media (id: $id, search: $search) {
+      media (id: $id, search: $search, isAdult: $isAdult) {
+        id
+        title {
+        romaji
+        english
+        native
+        }
+        coverImage{
+        large
+        }
+      }
+    }
+}
+`
+
+var querySearchANIME = `
+query ($id: Int, $page: Int, $perPage: Int, $search: String, $isAdult: Boolean) {
+    Page (page: $page, perPage: $perPage) {
+      pageInfo {
+        total
+        currentPage
+        lastPage
+        hasNextPage
+        perPage
+      }
+      media (id: $id, search: $search, type:ANIME, isAdult: $isAdult) {
+        id
+        title {
+        romaji
+        english
+        native
+        }
+        coverImage{
+        large
+        }
+      }
+    }
+}
+`
+
+var querySearchMANGA = `
+query ($id: Int, $page: Int, $perPage: Int, $search: String, $isAdult: Boolean) {
+    Page (page: $page, perPage: $perPage) {
+      pageInfo {
+        total
+        currentPage
+        lastPage
+        hasNextPage
+        perPage
+      }
+      media (id: $id, search: $search, type:MANGA, isAdult: $isAdult) {
         id
         title {
         romaji
@@ -66,39 +117,11 @@ query ($id: Int, $page: Int, $perPage: Int, $search: String) {
 `
 
 function handleResponse(response) {
-    return response.json().then(function (json) {
-        return response.ok ? json : Promise.reject(json);
-    });
+  return response.json().then(function (json) {
+    return response.ok ? json : Promise.reject(json);
+  });
 }
 
 function handleError(error) {
-    console.error(error);
+  console.error(error);
 }
-/*
-// Define our query variables and values that will be used in the query request
-var variables = {
-    id: animeID
-};
-
-// Define the config we'll need for our Api request
-var url = 'https://graphql.anilist.co',
-    options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-            query: query,
-            variables: variables
-        })
-};
-
-// Make the HTTP Api request
-fetch(url, options).then(handleResponse)
-.then(data => {
-    //console.log(data);
-    return data;
-})
-.catch(handleError);
-*/

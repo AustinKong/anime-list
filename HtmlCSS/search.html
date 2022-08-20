@@ -20,15 +20,35 @@
 </head>
 
 <body>
-    ERROR QUERYING MANGA????
-    <div>
-        <input type="text" placeholder="Search.." id="searchInput">
+    <template id="noResultsTemplate">
+        <div>
+            <h1 style="margin:auto;">No results UwU</h1>
+            <img src="../Images/b4c.gif" id="noResults">
+        </div>
+    </template>
+    <div class="searchBar">
+        <label for="searchInput">Search:</label>
+        <input type="text" placeholder="Search..." id="searchInput">
+
+        <label for="mediaType">Type:</label>
+        <select class="mediaFilter" id="mediaType" name="mediaType">
+            <option value="any">Any</option>
+            <option value="anime">Anime</option>
+            <option value="manga">Manga</option>
+        </select>
+
+        <label for="mediaSFW">SFW?:</label>
+        <select class="mediaFilter" id="mediaSFW" name="mediaSFW"> 
+            <option value="sfw">SFW</option>
+            <option value="nsfw">NSFW</option>
+        </select>
+
         <button type="submit" id="searchButton" onclick="RunSearch()"><i class="fa fa-search"></i></button>
     </div>
-    <div id="searchResults"></div>
+    <div id="searchResults">
+        
+    </div>
     <script defer src="../Scripts/SearchRender.js"></script>
-
-    <button onclick="test()">pres</button>
 </body>
 
 </html>

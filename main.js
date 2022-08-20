@@ -1,73 +1,123 @@
 const {
-  app,
-  BrowserWindow,
-  screen,
-  ipcMain
+    app,
+    BrowserWindow,
+    screen,
+    ipcMain
 } = require('electron')
 
 var mainWindow;
 const CreateMainPage = () => {
-   mainWindow = new BrowserWindow({
-    width: 1366,
-    height: 768,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-    }
-  })
-  mainWindow.loadFile('HtmlCSS/index.html');
+    mainWindow = new BrowserWindow({
+        width: 1366,
+        height: 768,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        }
+    })
+    mainWindow.loadFile('HtmlCSS/index.html');
 }
 app.whenReady().then(() => {
-  CreateMainPage();
+    CreateMainPage();
 })
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit()
+    if (process.platform !== 'darwin') app.quit()
 })
 
 //in honor to the random indian that is saving my career https://www.youtube.com/watch?v=Ytu5yXHhiVc
 // 2 step process: 1st transfer data to ipcMain from mainrender.js, 2nd transfer data to ipcRenderer from main.js
 ipcMain.on("createAnimeDataPage1", (event, data) => {
-  var win = CreateAnimeDataPage();
+    var win = CreateAnimeDataPage();
 
-  win.webContents.on('did-finish-load', function () {
-    win.webContents.send("createAnimeDataPage2", data);
-  });
+    win.webContents.on('did-finish-load', function () {
+        win.webContents.send("createAnimeDataPage2", data);
+    });
 
-  //refresh index on close
-  win.on('close', ()=>{
-    mainWindow.reload();
-  })
+    //refresh index on close
+    win.on('close', () => {
+        mainWindow.reload();
+    })
 })
 
-ipcMain.on("createSearchPage", (event) => {
-  CreateSearchPage();
+ipcMain.on("createSearchPage1", (event, data) => {
+    var win = CreateSearchPage();
+    
+    win.webContents.on('did-finish-load', function () {
+        win.webContents.send("createSearchPage2", data);
+    });
+
+    //refresh index on close
+    win.on('close', () => {
+        mainWindow.reload();
+    })
 })
 
+ipcMain.on("createManageListPage", (event) => {
+    var win = CreateManageListPage();
 
+    //refresh index on close
+    win.on('close', () => {
+        mainWindow.reload();
+    })
+})
+
+ipcMain.on("createCreditsPage", (event) => {
+    CreateCreditsPage();
+})
 
 const CreateSearchPage = () => {
-  const win = new BrowserWindow({
-    width: 1024,
-    height: 768,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-    }
-  })
-  win.loadFile('HtmlCSS/search.html');
-  return win;
+    const win = new BrowserWindow({
+        width: 1024,
+        height: 768,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        },
+        resizable: false
+    })
+    win.loadFile('HtmlCSS/search.html');
+    return win;
 }
 
 const CreateAnimeDataPage = () => {
-  const win = new BrowserWindow({
-    width: 1024,
-    height: 768,
-    webPreferences: {
-      nodeIntegration: true,
-      contextIsolation: false,
-    }
-  })
-  win.loadFile('HtmlCSS/animeData.html');
-  return win;
+    const win = new BrowserWindow({
+        width: 1024,
+        height: 768,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        },
+        resizable: false
+    })
+    win.loadFile('HtmlCSS/animeData.html');
+    return win;
+}
+
+const CreateManageListPage = () => {
+    const win = new BrowserWindow({
+        width: 1024,
+        height: 768,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        },
+        resizable: false
+    })
+    win.loadFile('HtmlCSS/manageList.html');
+    return win;
+}
+
+const CreateCreditsPage= () => {
+    const win = new BrowserWindow({
+        width: 1024,
+        height: 768,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        },
+        resizable: false
+    })
+    win.loadFile('HtmlCSS/credits.html');
+    return win;
 }

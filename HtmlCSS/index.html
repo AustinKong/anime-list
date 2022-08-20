@@ -5,8 +5,9 @@
     <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="indexStyles.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,26 +15,28 @@
     <script defer src="../Scripts/WebServices.js"></script>
     <script defer src="../Scripts/ReadWrite.js"></script>
 
-    <title>My list</title>
+    <title>My lists</title>
 </head>
 
 <body>
     <ul id="navbar">
-        <li>
-            <a>Anilist</a>
+        <li class="logo">
+            <a onclick="CreditsOnClick()" id="logoText">My Animanga</a>
         </li>
-        <li>
-            <a onclick="SearchOnClick()">Search</a>
+        <li class="searchBar">
+            <input type="text" placeholder="Search..." id="searchInput">
+            <button type="submit" id="searchButton" onclick="SearchOnClick()"><i class="fa fa-search"></i> </button>
+        </li>
+        <li id="manageList">
+            <a onclick="ManageListOnClick()" style="text-decoration: none; color: white; user-select:none;">☰</a>
         </li>
     </ul>
+
     <div id="mainGallery">
 
     </div>
 
-    <button onclick="//AddAnimeToList('default',APIGet(125367))">poggers button</button>
-    <button onclick="CreateEmptyList('default')">ALL CLEAR</button>
-    <button onclick="var a = await APIGet(125367); console.log(a);">Read</button>
-    <button onclick="OpenAnimeDataPage()">Read</button>
+
     <script defer src="../Scripts/MainRender.js"></script>
 </body>
 

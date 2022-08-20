@@ -1,0 +1,101 @@
+body {
+    background-color: #171717;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.show {
+    display: block;
+}
+
+#renamePopup{
+    width: 50%;
+    height: 30%;
+    display: none;
+    position: absolute;
+    color: black;
+    margin: auto;
+    background-color: rgb(233, 231, 231);
+    left: 25%;
+    top: 25%;
+    border-radius: 10px;
+    padding: 30px 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+}
+
+#navbar {
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 30px 60px;
+    border-radius: 0;
+    overflow: hidden;
+    background-color: #171717;
+}
+
+#createList {
+    float: right !important;
+    padding: 0 6px 0 6px;
+    margin-right: 1.5%;
+}
+
+#createList a{
+    text-decoration: none;
+    font-size: 29px;
+}
+
+#createList h2:hover{
+    color: rgb(206, 206, 206);
+}
+
+.listItem{
+    background-color: #242424;
+    padding: 2px 20px 20px 20px;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.listItem a{
+    margin-right: 30px;
+}
+
+#lists{
+    margin: auto;
+    width: 80%;
+    margin-top: 1%;
+    overflow-y: visible;
+}
+
+#listNameField {
+    padding: 6px 6px 6px 10px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    color: black;
+    border-radius: 2px;
+    width: 350px;
+}
+
+#searchButton {
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    color: #525252;
+    border-radius: 2px;
+}
+
+#closeButton{
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    padding: 0 10px 7px 10px;
+}
+
+#closeButton:hover{
+    background-color: #b8b8b8;
+}

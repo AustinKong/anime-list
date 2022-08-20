@@ -8,12 +8,28 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.searchBar{
+    padding: 10px 20px 10px 20px;
+}
+
+label{
+    font-size: 20px;
+    margin-left: 12px;
+    margin-right: 10px;
+}
+
+#noResults{
+    margin: auto;
+}
+
 #searchInput {
-    padding: 6px;
+    padding: 6px 6px 6px 10px;
     margin-top: 8px;
     font-size: 17px;
     border: none;
     color: black;
+    border-radius: 2px;
+    width: 300px;
 }
 
 #searchButton {
@@ -21,10 +37,21 @@ body::-webkit-scrollbar {
     padding: 6px 10px;
     margin-top: 8px;
     margin-right: 16px;
-    background: #ddd;
+    background: white;
     font-size: 17px;
     border: none;
     cursor: pointer;
+    color: #525252;
+    border-radius: 2px;
+}
+
+.mediaFilter{
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    color: black;
+    border-radius: 2px;
 }
 
 #searchResults {
@@ -32,6 +59,7 @@ body::-webkit-scrollbar {
     display: flex;
     flex-wrap: wrap;
     width: 90%;
+    margin-top: 5%;
 }
 
 .tile {
