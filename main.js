@@ -13,9 +13,11 @@ const CreateMainPage = () => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            devTools: !app.isPackaged,
         }
     })
     mainWindow.loadFile('HtmlCSS/index.html');
+    mainWindow.removeMenu()
 }
 app.whenReady().then(() => {
     CreateMainPage();
@@ -38,6 +40,7 @@ ipcMain.on("createAnimeDataPage1", (event, data) => {
     win.on('close', () => {
         mainWindow.reload();
     })
+    win.removeMenu()
 })
 
 ipcMain.on("createSearchPage1", (event, data) => {
@@ -51,6 +54,7 @@ ipcMain.on("createSearchPage1", (event, data) => {
     win.on('close', () => {
         mainWindow.reload();
     })
+    win.removeMenu()
 })
 
 ipcMain.on("createManageListPage", (event) => {
@@ -60,10 +64,12 @@ ipcMain.on("createManageListPage", (event) => {
     win.on('close', () => {
         mainWindow.reload();
     })
+    win.removeMenu()
 })
 
 ipcMain.on("createCreditsPage", (event) => {
-    CreateCreditsPage();
+    var win = CreateCreditsPage();
+    win.removeMenu()
 })
 
 const CreateSearchPage = () => {
@@ -73,6 +79,7 @@ const CreateSearchPage = () => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            devTools: !app.isPackaged,
         },
         resizable: false
     })
@@ -87,6 +94,7 @@ const CreateAnimeDataPage = () => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            devTools: !app.isPackaged,
         },
         resizable: false
     })
@@ -101,6 +109,7 @@ const CreateManageListPage = () => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            devTools: !app.isPackaged,
         },
         resizable: false
     })
@@ -115,6 +124,7 @@ const CreateCreditsPage= () => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
+            devTools: !app.isPackaged,
         },
         resizable: false
     })
