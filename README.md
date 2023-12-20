@@ -3,7 +3,7 @@ A tool for anime and manga lovers to keep track of their favourite series!
 ## About
 ![Main page](./Images/MainPage.png)
 ### Description
-My Animanga, formally Anime List, is a tool for keeping track of anime and manga series. Features include:
+My Animanga, formerly Anime List, is a tool for keeping track of anime and manga series. Features include:
 * Search function for finding anime/manga series, search results based on [AniList Api v2](https://github.com/AniList/ApiV2-GraphQL-Docs)
 * Anime/manga/both filter, SFW/NSFW filter
 * Up to date anime/manga information, including title, description, cover image and genre tags
