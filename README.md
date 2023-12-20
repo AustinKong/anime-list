@@ -35,7 +35,7 @@ Installation and setup instructions for developers:
 ### Contributing
 This project is no longer under active development. Suggestions, issues and bug reports will not be actively resolved. However, pull requests and forks are always welcome!
 ## Authors
-Austin Kong @AustinKong
+Austin Kong [@AustinKong](https://github.com/AustinKong)
 ## License
 This project is licensed under MIT license. View license in [license.txt](license.txt)
 
